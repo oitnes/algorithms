@@ -1,14 +1,11 @@
 set(TEST_SOURCES
         main.cpp
-        basic/basic_sum_test.cpp
+        sort/base_insert_sort_test.cpp
+        sort/base_merge_sort_test.cpp
         )
 
-set(TEST_LIBS
-        basic_lib
-        )
+add_executable(algorithms_tests ${TEST_SOURCES})
+target_link_libraries(algorithms_tests algorithms_lib ${CONAN_LIBS})
+target_include_directories(algorithms_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
-add_executable(run_tests ${TEST_SOURCES})
-target_link_libraries(run_tests ${TEST_LIBS} ${CONAN_LIBS})
-target_include_directories(run_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
-
-add_test(NAME array_tests WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin COMMAND array_tests)
+add_test(NAME algorithms_tests WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin COMMAND algorithms_tests)

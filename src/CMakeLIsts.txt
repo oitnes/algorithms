@@ -1,1 +1,6 @@
-add_subdirectory(basic)
+set(SORT_FILES
+        sort/sorts.cpp
+        sort/insertion_sort.hpp
+        sort/merge_sort.hpp)
+
+add_library(algorithms_lib ${SORT_FILES})
