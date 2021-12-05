@@ -42,7 +42,7 @@ namespace merge_sort {
 
     template<typename T, typename F>
     void sort(std::vector<T> &input, F comparator) {
-        return sort(input, static_cast<const std::function<bool(T, T)> &>(comparator));
+        return merge_sort::sort(input, static_cast<const std::function<bool(T, T)> &>(comparator));
     }
 
 }

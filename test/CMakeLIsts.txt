@@ -2,6 +2,7 @@ set(TEST_SOURCES
         main.cpp
         sort/base_insert_sort_test.cpp
         sort/base_merge_sort_test.cpp
+        sort/base_bubble_sort_test.cpp
         )
 
 add_executable(algorithms_tests ${TEST_SOURCES})
