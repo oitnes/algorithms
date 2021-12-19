@@ -1,6 +1,9 @@
-set(SORT_FILES
-        sort/sorts.cpp
-        sort/insertion_sort.hpp
-        sort/merge_sort.hpp)
+set(SRC_FILES
+        array/array.cpp
+        graph/graph.cpp
+        grid/grid.cpp
+        list/list.cpp
+        matrix/matrix.cpp
+        )
 
-add_library(algorithms_lib ${SORT_FILES})
+add_library(algorithms_lib ${SRC_FILES})

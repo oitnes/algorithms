@@ -71,17 +71,12 @@ jobs:
         run: |
           export CC=${{ matrix.config.cc }}
           export CXX=${{ matrix.config.cxx }}
-          export LD_LIBRARY_PATH=$VULKAN_SDK/lib:$LD_LIBRARY_PATH
           # Setup conan
-          # Note: libstdc++11 is needed to use new libc++ ABI
           conan profile new default --detect
-          conan profile update settings.compiler.libcxx=libstdc++11 default
           # Configure cmake
           cmake . \
             -Bbuild \
             -DCMAKE_BUILD_TYPE=${{ env.build_type }} \
-            -DINEXOR_USE_VMA_RECORDING=OFF \
-            -GNinja \
             ${{ matrix.config.cmake_configure_options }}
       - name: Build
         shell: bash
@@ -109,7 +104,7 @@ jobs:
             cc: "cl", cxx: "cl",
             cmake_build_options: "--config Release",
             cmake_configure_options: '-G "Visual Studio 16 2019" -A x64',
-            conan_profile_update: 'conan profile update settings.compiler="Visual Studio" default; conan profile update settings.compiler.version=16 default',
+            conan_profile_update: 'conan profile update settings.compiler="Visual Studio" default;',
           }
 
     steps:

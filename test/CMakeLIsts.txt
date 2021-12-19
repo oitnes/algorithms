@@ -1,8 +1,19 @@
 set(TEST_SOURCES
         main.cpp
-        sort/base_insert_sort_test.cpp
-        sort/base_merge_sort_test.cpp
-        sort/base_bubble_sort_test.cpp
+        array/3sum.cpp
+        array/bubble_sort.cpp
+        array/find_first_and_last_position_of_element_in_sorted_array.cpp
+        array/find_minimum_in_rotated_sorted_array.cpp
+        array/find_peak_element.cpp
+        array/search_in_rotated_sorted_array.cpp
+        array/insert_sort.cpp
+        array/merge_sort.cpp
+        array/fast_four_array_sort.cpp
+        graph/all_paths_in_acyclic_graph.cpp
+        grid/shortest_path_in_binary_matrix.cpp
+        grid/surrounded_regions.cpp
+        list/remove_duplicates_from_sorted_list_2.cpp
+        matrix/search_a_2D_matrix.cpp
         )
 
 add_executable(algorithms_tests ${TEST_SOURCES})
