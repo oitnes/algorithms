@@ -18,7 +18,6 @@ GTEST_ASSERT_EQ(p1.second, p2.second);
     el2 = nextFn(el2);                     \
 }                                           \
 
-
 #define CHECK_EQUAL_ARRAYS(a1, a2) \
 GTEST_ASSERT_EQ(a1.size(), a2.size()); \
 for (int i = 0; i < a1.size(); i++) { GTEST_ASSERT_EQ(a1[i], a2[i]);}
@@ -31,14 +30,14 @@ for (int j = 0; j < m1[i].size(); j++) { \
 GTEST_ASSERT_EQ(m1[i][j], m2[i][j]);}} \
 
 // https://antonlipov.blogspot.com/2015/08/how-to-timeout-tests-in-gtest.html
-#define TEST_TIMEOUT_BEGIN   std::promise<bool> promisedFinished; \
-auto futureResult = promisedFinished.get_future(); \
-std::thread([](std::promise<bool>& finished) {
-
-#define TEST_TIMEOUT_FAIL_END(X)  finished.set_value(true); \
-}, std::ref(promisedFinished)).detach(); \
-EXPECT_TRUE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);
-
-#define TEST_TIMEOUT_SUCCESS_END(X)  finished.set_value(true); \
-}, std::ref(promisedFinished)).detach(); \
-EXPECT_FALSE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);
+//#define TEST_TIMEOUT_BEGIN   std::promise<bool> promisedFinished; \
+//auto futureResult = promisedFinished.get_future(); \
+//std::thread([](std::promise<bool>& finished) {
+//
+//#define TEST_TIMEOUT_FAIL_END(X)  finished.set_value(true); \
+//}, std::ref(promisedFinished)).detach(); \
+//EXPECT_TRUE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);
+//
+//#define TEST_TIMEOUT_SUCCESS_END(X)  finished.set_value(true); \
+//}, std::ref(promisedFinished)).detach(); \
+//EXPECT_FALSE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);

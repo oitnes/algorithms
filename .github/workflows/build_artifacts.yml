@@ -1,4 +1,4 @@
-name: Build
+name: Build artifacts
 on: push
 
 env:
@@ -16,64 +16,25 @@ jobs:
       matrix:
         config:
           - {
-            name: "Ubuntu Clang",
-            artifact: "linux-clang.tar.xz",
-            cc: "clang", cxx: "clang++",
-            cmake_configure_options: '-DCMAKE_EXE_LINKER_FLAGS="-v -fuse-ld=lld"',
-          }
-          - {
             name: "Ubuntu GCC",
-            artifact: "linux-gcc.tar.xz",
-            cc: "gcc", cxx: "g++",
+            artifact: "linux-gcc.tar.xz"
           }
-
     steps:
       - name: Update environment
         shell: bash
         run: |
           # Update package lists
-          apt update -qq
+          apt-get update
           # Install build tools
-          apt install -y \
-            clang \
-            cmake \
-            curl \
-            git \
-            libgl1-mesa-dev \
-            libx11-dev \
-            libx11-xcb-dev \
-            libxcb-dri3-dev \
-            libxcb-icccm4-dev \
-            libxcb-image0-dev \
-            libxcb-keysyms1-dev \
-            libxcb-randr0-dev \
-            libxcb-render-util0-dev \
-            libxcb-render0-dev \
-            libxcb-shape0-dev \
-            libxcb-sync-dev \
-            libxcb-util-dev \
-            libxcb-xfixes0-dev \
-            libxcb-xinerama0-dev \
-            libxcb-xkb-dev \
-            lld \
-            ninja-build \
-            pkg-config \
-            python3 \
-            python3-pip \
-            xkb-data \
-            xorg-dev
-          pip3 install wheel setuptools
+          apt-get install -y apt-utils software-properties-common
+          apt-get dist-upgrade -y
+          apt-get install -y build-essential gcc g++ make cmake python3-pip
           pip3 install conan
       - name: Checkout
         uses: actions/checkout@v2
       - name: Configure CMake
         shell: bash
         run: |
-          export CC=${{ matrix.config.cc }}
-          export CXX=${{ matrix.config.cxx }}
-          # Setup conan
-          conan profile new default --detect
-          # Configure cmake
           cmake . \
             -Bbuild \
             -DCMAKE_BUILD_TYPE=${{ env.build_type }} \
@@ -81,62 +42,12 @@ jobs:
       - name: Build
         shell: bash
         run: |
-          cmake --build build
+          cd build
+          make
+          cd ..
       - name: Prepare upload
         run: |
           tar cfz ${{ matrix.config.artifact }} build
-      - name: Upload
-        uses: actions/upload-artifact@v2
-        with:
-          path: ${{ matrix.config.artifact }}
-          name: ${{ matrix.config.artifact }}
-
-  windows:
-    name: ${{ matrix.config.name }}
-    runs-on: windows-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        config:
-          - {
-            name: "Windows MSVC",
-            artifact: "windows-msvc.zip",
-            cc: "cl", cxx: "cl",
-            cmake_build_options: "--config Release",
-            cmake_configure_options: '-G "Visual Studio 16 2019" -A x64',
-            conan_profile_update: 'conan profile update settings.compiler="Visual Studio" default;',
-          }
-
-    steps:
-      - name: Update environment
-        shell: pwsh
-        run: |
-          pip3 install wheel setuptools
-          pip3 install conan
-          choco install ninja
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Configure CMake
-        shell: pwsh
-        run: |
-          $env:CC="${{ matrix.config.cc }}"
-          $env:CXX="${{ matrix.config.cxx }}"
-          # Setup conan
-          conan profile new default --detect --force
-          ${{ matrix.config.conan_profile_update }}
-          # Configure CMake
-          cmake . `
-            -Bbuild `
-            -DCMAKE_BUILD_TYPE=${{ env.build_type }} `
-            ${{ matrix.config.cmake_configure_options }}
-      - name: Build
-        shell: pwsh
-        run: |
-          cmake --build build ${{ matrix.config.cmake_build_options }}
-      - name: Prepare upload
-        shell: pwsh
-        run: |
-          7z a -tzip ${{ matrix.config.artifact }} build/*
       - name: Upload
         uses: actions/upload-artifact@v2
         with:

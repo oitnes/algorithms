@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <functional>
+#include <exception>
 
 namespace fast_four_size_array_sort {
 
@@ -21,7 +22,9 @@ namespace fast_four_size_array_sort {
 
     template<typename T, typename F>
     void sort(std::vector<T> &input, F comparator) {
-        assert(input.size() == 4);
+        if(input.size() != 4) {
+            throw std::length_error("input vector size must be 4");
+        }
         return fast_four_size_array_sort::sort(input[0], input[1], input[2], input[3],
                                                static_cast<const std::function<bool(T, T)> &>(comparator));
     }
