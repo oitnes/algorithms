@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <vector>
-
 using namespace std;
 using namespace find_minimum_in_rotated_sorted_array;
 

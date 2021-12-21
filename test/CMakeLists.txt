@@ -8,12 +8,26 @@ set(TEST_SOURCES
         array/search_in_rotated_sorted_array.cpp
         array/insert_sort.cpp
         array/merge_sort.cpp
+        array/minimum_size_subarray_sum.cpp
         array/fast_four_array_sort.cpp
-        graph/all_paths_in_acyclic_graph.cpp
+        array/subarray_product_less_than.cpp
+        graph/all_paths_from_source_to_target.cpp
+        graph/number_of_provinces.cpp
+        grid/number_of_islands.cpp
         grid/shortest_path_in_binary_matrix.cpp
         grid/surrounded_regions.cpp
+        grid/word_search.cpp
         list/remove_duplicates_from_sorted_list_2.cpp
         matrix/search_a_2D_matrix.cpp
+        set/combination_sum.cpp
+        set/letter_combination_in_phone_number.cpp
+        set/permutations_2.cpp
+        set/subset.cpp
+        set/subset2.cpp
+        string/find_all_anagrams_in_string.cpp
+        string/generate_parentheses.cpp
+        tree/populating_next_right_pointers_in_each_node_two.cpp
+        tree/subtree_of_another_tree.cpp
         )
 
 add_executable(algorithms_tests ${TEST_SOURCES})

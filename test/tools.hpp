@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <future>
-
 #define CHECK_EQUAL_PAIRS(p1, p2) \
 GTEST_ASSERT_EQ(p1.first, p2.first); \
 GTEST_ASSERT_EQ(p1.second, p2.second);
@@ -28,16 +26,3 @@ for (int i = 0; i < m1.size(); i++) {  \
 GTEST_ASSERT_EQ(m1[i].size(), m2[i].size()); \
 for (int j = 0; j < m1[i].size(); j++) { \
 GTEST_ASSERT_EQ(m1[i][j], m2[i][j]);}} \
-
-// https://antonlipov.blogspot.com/2015/08/how-to-timeout-tests-in-gtest.html
-//#define TEST_TIMEOUT_BEGIN   std::promise<bool> promisedFinished; \
-//auto futureResult = promisedFinished.get_future(); \
-//std::thread([](std::promise<bool>& finished) {
-//
-//#define TEST_TIMEOUT_FAIL_END(X)  finished.set_value(true); \
-//}, std::ref(promisedFinished)).detach(); \
-//EXPECT_TRUE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);
-//
-//#define TEST_TIMEOUT_SUCCESS_END(X)  finished.set_value(true); \
-//}, std::ref(promisedFinished)).detach(); \
-//EXPECT_FALSE(futureResult.wait_for(std::chrono::milliseconds(X)) != std::future_status::timeout);

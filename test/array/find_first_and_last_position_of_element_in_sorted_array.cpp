@@ -4,8 +4,6 @@
 
 #include <gtest/gtest.h>
 
-#include <vector>
-
 using namespace std;
 using namespace find_first_and_last_position_of_element_in_sorted_array;
 

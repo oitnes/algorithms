@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <vector>
-
 using namespace std;
 using namespace search_in_rotated_binary_array;
 

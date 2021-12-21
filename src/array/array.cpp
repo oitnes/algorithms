@@ -6,4 +6,6 @@
 #include "find_peak_element.hpp"
 #include "insertion_sort.hpp"
 #include "merge_sort.hpp"
+#include "minimum_size_subarray_sum.hpp"
 #include "search_in_rotated_sorted_array.hpp"
+#include "subarray_product_less_than.hpp"

@@ -2,8 +2,6 @@
 
 #include <gtest/gtest.h>
 
-#include <vector>
-
 using namespace std;
 using namespace search_a_2d_matrix;
 
