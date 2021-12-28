@@ -11,6 +11,7 @@ set(TEST_SOURCES
         array/minimum_size_subarray_sum.cpp
         array/fast_four_array_sort.cpp
         array/subarray_product_less_than.cpp
+        dynamic/cut_rod.cpp
         graph/all_paths_from_source_to_target.cpp
         graph/number_of_provinces.cpp
         grid/number_of_islands.cpp

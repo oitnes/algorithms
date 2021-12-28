@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 
 // https://leetcode.com/problems/permutations-ii/
 namespace permutations_two {
@@ -30,7 +31,7 @@ namespace permutations_two {
     std::vector<std::vector<int>> permuteUnique(std::vector<int> &nums) {
         std::vector<std::vector<int>> result;
         std::vector<int> current;
-        sort(nums.begin(), nums.end());
+        std::sort(nums.begin(), nums.end());
         std::vector<bool> used_indexes(nums.size());
         f(nums, current, result, used_indexes, nums.size());
         return result;

@@ -1,5 +1,6 @@
 set(SRC_FILES
         array/array.cpp
+        dynamic/dynamic.cpp
         graph/graph.cpp
         grid/grid.cpp
         list/list.cpp

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <limits>
 
 // https://leetcode.com/problems/minimum-size-subarray-sum/
 namespace minimum_size_subarray_sum {

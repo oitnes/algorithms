@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <algorithm>
 
 // https://leetcode.com/problems/subsets-ii/
 namespace subset_two {

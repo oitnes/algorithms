@@ -6,10 +6,10 @@
 GTEST_ASSERT_EQ(p1.first, p2.first); \
 GTEST_ASSERT_EQ(p1.second, p2.second);
 
-#define CHECK_EQUAL_LISTS(l1, l2, nextFn, getValFn) \
+#define CHECK_EQUAL_LISTS(l1, l2, nextFn, getValFn) ; \
  auto el1 = l1; \
  auto el2 = l1; \
- while(el1 || el2){                                 \
+ while(el1 || el2) {                                 \
     if (!el1 || !el2) {GTEST_ASSERT_TRUE(false); break;}\
     GTEST_ASSERT_EQ(getValFn(el1), getValFn(el2));                                      \
     el1 = nextFn(el1);                     \
