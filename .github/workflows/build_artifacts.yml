@@ -20,16 +20,19 @@ jobs:
             artifact: "linux-gcc.tar.xz"
           }
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
       - name: Update environment
         shell: bash
         run: |
           apt-get update
           apt-get install -y apt-utils software-properties-common
           apt-get dist-upgrade -y
+      - name: Install build tools
+        shell: bash
+        run: |
           apt-get install -y build-essential gcc g++ make cmake python3-pip
-          pip3 install conan
+          pip3 install conan --user
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Configure CMake
         shell: bash
         run: |
