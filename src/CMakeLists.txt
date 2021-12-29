@@ -11,3 +11,5 @@ set(SRC_FILES
         )
 
 add_library(algorithms_lib ${SRC_FILES})
+
+add_subdirectory(multithreading/visitor)

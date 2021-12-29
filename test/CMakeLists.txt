@@ -20,6 +20,7 @@ set(TEST_SOURCES
         grid/word_search.cpp
         list/remove_duplicates_from_sorted_list_2.cpp
         matrix/search_a_2D_matrix.cpp
+        multithreading/visitor.cpp
         set/combination_sum.cpp
         set/letter_combination_in_phone_number.cpp
         set/permutations_2.cpp
@@ -32,7 +33,7 @@ set(TEST_SOURCES
         )
 
 add_executable(algorithms_tests ${TEST_SOURCES})
-target_link_libraries(algorithms_tests algorithms_lib ${CONAN_LIBS})
+target_link_libraries(algorithms_tests algorithms_lib multithreading_visitors_lib ${CONAN_LIBS})
 target_include_directories(algorithms_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
 
 add_test(NAME algorithms_tests WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin COMMAND algorithms_tests)
