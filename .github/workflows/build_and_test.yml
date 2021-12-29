@@ -14,9 +14,9 @@ jobs:
       - name: Build image
         uses: docker/build-push-action@v2
         with:
-          tags: autotester:latest
+          tags: autotester
           file: .github/workflows/Dockerfile
           context: .
       - name: Run tests
         shell: bash
-        run: docker run autotester:latest
+        run: docker run autotester
