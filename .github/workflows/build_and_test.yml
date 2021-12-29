@@ -17,6 +17,7 @@ jobs:
           tags: autotester
           file: .github/workflows/Dockerfile
           context: .
+          load: true
       - name: Run tests
         shell: bash
         run: docker run autotester
