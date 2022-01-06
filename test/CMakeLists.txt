@@ -5,10 +5,12 @@ set(TEST_SOURCES
         array/find_first_and_last_position_of_element_in_sorted_array.cpp
         array/find_minimum_in_rotated_sorted_array.cpp
         array/find_peak_element.cpp
+        array/find_the_town_judge.cpp
         array/search_in_rotated_sorted_array.cpp
         array/insert_sort.cpp
         array/merge_sort.cpp
         array/minimum_size_subarray_sum.cpp
+        array/rotate_function.cpp
         array/fast_four_array_sort.cpp
         array/subarray_product_less_than.cpp
         dynamic/cut_rod.cpp
@@ -21,6 +23,7 @@ set(TEST_SOURCES
         list/remove_duplicates_from_sorted_list_2.cpp
         matrix/search_a_2D_matrix.cpp
         multithreading/visitor.cpp
+        number/complement_of_base_ten.cpp
         set/combination_sum.cpp
         set/letter_combination_in_phone_number.cpp
         set/permutations_2.cpp
