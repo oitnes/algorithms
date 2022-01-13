@@ -10,4 +10,5 @@
 #include "minimum_size_subarray_sum.hpp"
 #include "rotate_function.hpp"
 #include "search_in_rotated_sorted_array.hpp"
+#include "strongest_values_in_an_array.hpp"
 #include "subarray_product_less_than.hpp"
