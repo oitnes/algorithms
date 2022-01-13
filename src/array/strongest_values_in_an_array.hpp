@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 
 // https://leetcode.com/problems/the-k-strongest-values-in-an-array/
 namespace strongest_values_in_an_array {
