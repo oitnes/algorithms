@@ -10,6 +10,7 @@ set(TEST_SOURCES
         array/insert_sort.cpp
         array/merge_sort.cpp
         array/minimum_size_subarray_sum.cpp
+        array/product_expect_self.cpp
         array/rotate_function.cpp
         array/fast_four_array_sort.cpp
         array/strongest_values_in_an_array.cpp
@@ -23,6 +24,7 @@ set(TEST_SOURCES
         grid/word_search.cpp
         list/remove_duplicates_from_sorted_list_2.cpp
         matrix/search_a_2D_matrix.cpp
+        matrix/spiral_order.cpp
         multithreading/visitor.cpp
         number/complement_of_base_ten.cpp
         set/combination_sum.cpp
