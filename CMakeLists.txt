@@ -7,9 +7,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # compiler specific settings
-if (APPLE)
-    set(CMAKE_CXX_COMPILER_VERSION "12.0") # current conan file is not working with apple compiler version >12.0
-endif (APPLE)
+set(CMAKE_CXX_COMPILER_VERSION "11.0") # current conan file is not working with apple compiler version >12.0
 
 if(NOT EXISTS "${CMAKE_BINARY_DIR}/conan.cmake")
     message(STATUS "Downloading conan.cmake from https://github.com/conan-io/cmake-conan")
