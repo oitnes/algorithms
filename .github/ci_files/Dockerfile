@@ -20,4 +20,5 @@ RUN cmake -DCMAKE_BUILD_TYPE=Release -S ${PROJECT_SOURCE_DIR} -B ${PROJECT_BUILD
     cd ${PROJECT_BUILD_DIR} && \
     make
 
-ENTRYPOINT ["/project/build/bin/algorithms_tests"]
+WORKDIR ${PROJECT_BUILD_DIR}/bin
+ENTRYPOINT ["/project/build/algorithms_tests"]
