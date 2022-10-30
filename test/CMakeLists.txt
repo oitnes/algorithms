@@ -41,5 +41,3 @@ set(TEST_SOURCES
 add_executable(algorithms_tests ${TEST_SOURCES})
 target_link_libraries(algorithms_tests algorithms_lib multithreading_visitors_lib ${CONAN_LIBS})
 target_include_directories(algorithms_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
-
-add_test(NAME algorithms_tests WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin COMMAND algorithms_tests)
