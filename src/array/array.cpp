@@ -8,6 +8,7 @@
 #include "insertion_sort.hpp"
 #include "merge_sort.hpp"
 #include "minimum_size_subarray_sum.hpp"
+#include "product_expect_self.hpp"
 #include "rotate_function.hpp"
 #include "search_in_rotated_sorted_array.hpp"
 #include "strongest_values_in_an_array.hpp"

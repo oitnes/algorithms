@@ -10,6 +10,7 @@ set(TEST_SOURCES
         array/insert_sort.cpp
         array/merge_sort.cpp
         array/minimum_size_subarray_sum.cpp
+        array/product_expect_self.cpp
         array/rotate_function.cpp
         array/fast_four_array_sort.cpp
         array/strongest_values_in_an_array.cpp
@@ -23,6 +24,7 @@ set(TEST_SOURCES
         grid/word_search.cpp
         list/remove_duplicates_from_sorted_list_2.cpp
         matrix/search_a_2D_matrix.cpp
+        matrix/spiral_order.cpp
         multithreading/visitor.cpp
         number/complement_of_base_ten.cpp
         set/combination_sum.cpp
@@ -39,5 +41,3 @@ set(TEST_SOURCES
 add_executable(algorithms_tests ${TEST_SOURCES})
 target_link_libraries(algorithms_tests algorithms_lib multithreading_visitors_lib ${CONAN_LIBS})
 target_include_directories(algorithms_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
-
-add_test(NAME algorithms_tests WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/bin COMMAND algorithms_tests)
