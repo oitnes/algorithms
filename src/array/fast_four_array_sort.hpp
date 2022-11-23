@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <functional>
-#include <exception>
+#include <stdexcept>
 
 namespace fast_four_size_array_sort {
 

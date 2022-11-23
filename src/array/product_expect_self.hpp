@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <cassert>
 
 // https://leetcode.com/explore/interview/card/top-interview-questions-hard/116/array-and-strings/827/
 namespace product_expect_self {

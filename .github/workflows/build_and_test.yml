@@ -1,29 +1,21 @@
-name: Build and run unit tests in Docker linux env
+name: Build and run unit tests in Docker env
 on:
   push:
     branches:
-      - 'master'
+      - "master"
+  pull_request:
+    branches:
+      - "master"
 
 jobs:
-  docker_build_and_run:
+  testing:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v1
-
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
-
-      - name: Check out the repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Build image
-        uses: docker/build-push-action@v2
-        with:
-          tags: tester
-          file: .github/ci_files/Dockerfile
-          context: .
-          load: true
+        shell: bash
+        run: docker build --file .github/ci_files/Dockerfile --tag tester .
 
       - name: Run tests
         shell: bash
