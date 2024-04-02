@@ -39,5 +39,5 @@ set(TEST_SOURCES
         )
 
 add_executable(algorithms_tests ${TEST_SOURCES})
-target_link_libraries(algorithms_tests algorithms_lib multithreading_visitors_lib ${CONAN_LIBS})
+target_link_libraries(algorithms_tests algorithms_lib multithreading_visitors_lib gtest::gtest)
 target_include_directories(algorithms_tests PRIVATE ${CMAKE_SOURCE_DIR}/src)
